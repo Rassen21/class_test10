@@ -1,0 +1,15 @@
+---
+- hosts: all
+  connection: ssh
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: CLean remote tmp file
+      cron: 
+        name: Clean remote Folder
+        weekday: 0
+        hour: 23
+        minute: 59
+        job: "rm -rf /tmp/*"
+        state: present 
+
