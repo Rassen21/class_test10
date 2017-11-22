@@ -1,0 +1,10 @@
+---
+- hosts: all
+  connection: ssh
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Copy template to remote system
+      template:
+        scr: /etc/services
+        dest: /tmp
