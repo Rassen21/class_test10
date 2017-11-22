@@ -1,0 +1,15 @@
+---  #Wait for module
+- hosts: all
+  connection: ssh
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks: 
+    - name: Install pakage when folder
+      wait_for: 
+        path: /random_folder
+    
+    - name: Install the package 
+      yum: 
+        name: epel-release
+        state: installed
